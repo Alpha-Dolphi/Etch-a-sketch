@@ -13,14 +13,29 @@
         <button id="rainbow-mode" class="button">Rainbow mode</button>
         <button id="eraser" class="button">Eraser</button>
         <button id="clear">Clear</button>
+        <div id="frame">
+          <input id="back" type="color" onchange="changeBackground(this.value)"></button>
+          <p id="decription">Background</p>
+        </div>
         <p id="scale">16x16</p>
-        <input id="range-input" type="range" min="1" max="64" step="1" value="16" oninput="showScale(this.value)" onchange="filling(this.value)" />
+        <input id="range-input" type="range" min="1" max="64" step="1" value="16" oninput="showScale(this.value)" onchange="filling(this.value, document.querySelector('#back').value)" />
     </section>
     <section id="board">
         <h1 id="name">Etch-a-sketch</h1>
-        <div id="canvas">            
-        </div>
-    </section>    
+        <div id="canvas"></div>
+        <footer class="footer">
+            <p>
+              Copyright ©
+              <script>
+                document.write(new Date().getFullYear())
+              </script>
+              Alpha-Dolphi
+            </p>
+            <a href="https://github.com/Alpha-Dolphi" target="_blank">
+              <i class="fa fa-github"></i>
+            </a>
+        </footer>
+    </section>
 </body>
 <script src="js-file.js"></script>
 </html>
