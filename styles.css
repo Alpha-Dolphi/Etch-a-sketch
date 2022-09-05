@@ -40,17 +40,6 @@ input[type='color']:first-of-type {
   
 input[type='color']:first-of-type::-webkit-color-swatch-wrapper {
     padding: 0;
-
-
-
-
-
-
-
-
-
-
-    
 }
   
 input[type='color']:first-of-type::-webkit-color-swatch {

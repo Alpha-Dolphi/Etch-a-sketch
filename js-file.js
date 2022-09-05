@@ -15,7 +15,7 @@
     document.querySelector('#back').value = "#FFFFFF";
 
     // Setting up an initial color and canvas scale
-    let brushColor = "black", rainbow = false, first = 0, prevBackColor = `rgb(${hexToRgb('#FFFFFF').r}, ${hexToRgb('#FFFFFF').g}, ${hexToRgb("#FFFFFF").b})`;;
+    let brushColor = "black", rainbow = false, erase = false, first = 0, prevBackColor = `rgb(${hexToRgb('#FFFFFF').r}, ${hexToRgb('#FFFFFF').g}, ${hexToRgb("#FFFFFF").b})`;;
     if(first === 0) {
         first++;
         filling(16, "#FFFFFF");
@@ -54,6 +54,10 @@
                     // generating a random color
                     cell.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16); 
                     cell.style.value = "painted";
+                }
+                else if (erase === true) {
+                    cell.style.backgroundColor = document.querySelector('#back').value;
+                    cell.style.value = "clear";
                 }  
                 else {                    
                     cell.style.backgroundColor = brushColor;    
@@ -73,6 +77,10 @@
                         cell.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
                         cell.style.value = "painted";
                     }  
+                    else if (erase === true) {
+                        cell.style.backgroundColor = document.querySelector('#back').value;
+                        cell.style.value = "clean";
+                    }
                     else {
                         cell.style.backgroundColor = brushColor;    
                         cell.style.value = "painted";
@@ -120,15 +128,17 @@
     })
     
     eraser.addEventListener("click", () => {
+        erase = true;
         rainbow = false;
-        brushColor = document.querySelector('#back').value;
     })
 
     rainbowMode.addEventListener("click", () => {
+        erase = false;
         rainbow = true;
     })
 
     colorMode.addEventListener("click", () => {
+        erase = false;
         rainbow = false;
         brushColor = colorInput.value;
     })
