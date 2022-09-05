@@ -57,7 +57,7 @@
                 }
                 else if (erase === true) {
                     cell.style.backgroundColor = document.querySelector('#back').value;
-                    cell.style.value = "clear";
+                    cell.style.value = "clean";
                 }  
                 else {                    
                     cell.style.backgroundColor = brushColor;    
